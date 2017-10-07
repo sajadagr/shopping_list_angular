@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping List</title>
+	<!--app.js file should be included after the inclusion of angular.min.js file-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+	<div ng-app="shoppingApp" ng-cloak ng-controller="shoppingController" class="w3-card-2 w3-margin" style="max-width:400px;">
+		<header class="w3-container w3-light-grey w3-padding-16">
+			<h2>My Shopping List</h2>
+		</header>
+		<ul class="w3-ul">
+			<li class="w3-padding-16" ng-repeat="product in products">{{product}}
+			<span  ng-click="removeItem($index)"class="w3-right w3-margin-right" style="cursor: pointer;">&times;</span></li>
+		</ul>
+		<div class="w3-container w3-light-grey w3-padding-16">
+			<div class="w3-row w3-margin-top">
+				<div class="w3-col s10">
+					<input type="text" ng-model="addItemTextbox" class="w3-input w3-padding w3-border" placeholder="Add Items Here...">
+				</div>
+				<div class="w3-col s2">
+					<button ng-click="addItemFunction()" class="w3-btn w3-padding w3-green">Add</button>
+				</div>
+				<p w3-text-red>{{errorText}}</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
